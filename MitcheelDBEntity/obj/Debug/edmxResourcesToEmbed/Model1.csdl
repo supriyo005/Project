@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MitcheelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CauseOfLossCode">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Byte" Nullable="false" />
+    <Property Name="cause" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MitchellClaim">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="claimNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="claimantFirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="caimantLastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Byte" />
+    <Property Name="lossdate" Type="DateTime" Precision="3" />
+    <Property Name="AssignedAdjusterID" Type="Int32" />
+    <NavigationProperty Name="StatusCode" Relationship="Self.FK__MitchellC__statu__145C0A3F" FromRole="MitchellClaim" ToRole="StatusCode" />
+  </EntityType>
+  <EntityType Name="StatusCode">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Byte" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MitchellClaims" Relationship="Self.FK__MitchellC__statu__145C0A3F" FromRole="StatusCode" ToRole="MitchellClaim" />
+  </EntityType>
+  <Association Name="FK__MitchellC__statu__145C0A3F">
+    <End Role="StatusCode" Type="Self.StatusCode" Multiplicity="0..1" />
+    <End Role="MitchellClaim" Type="Self.MitchellClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusCode">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MitchellClaim">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MitcheelEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CauseOfLossCodes" EntityType="Self.CauseOfLossCode" />
+    <EntitySet Name="MitchellClaims" EntityType="Self.MitchellClaim" />
+    <EntitySet Name="StatusCodes" EntityType="Self.StatusCode" />
+    <AssociationSet Name="FK__MitchellC__statu__145C0A3F" Association="Self.FK__MitchellC__statu__145C0A3F">
+      <End Role="StatusCode" EntitySet="StatusCodes" />
+      <End Role="MitchellClaim" EntitySet="MitchellClaims" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

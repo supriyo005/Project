@@ -1,0 +1,12 @@
+E:\Important\Project\MItcheelClaimSystem\MitcheelDBEntity\bin\Debug\MitcheelDBEntity.dll.config
+E:\Important\Project\MItcheelClaimSystem\MitcheelDBEntity\bin\Debug\MitcheelDBEntity.dll
+E:\Important\Project\MItcheelClaimSystem\MitcheelDBEntity\bin\Debug\MitcheelDBEntity.pdb
+E:\Important\Project\MItcheelClaimSystem\MitcheelDBEntity\bin\Debug\EntityFramework.dll
+E:\Important\Project\MItcheelClaimSystem\MitcheelDBEntity\bin\Debug\EntityFramework.SqlServer.dll
+E:\Important\Project\MItcheelClaimSystem\MitcheelDBEntity\bin\Debug\EntityFramework.xml
+E:\Important\Project\MItcheelClaimSystem\MitcheelDBEntity\bin\Debug\EntityFramework.SqlServer.xml
+E:\Important\Project\MItcheelClaimSystem\MitcheelDBEntity\obj\Debug\MitcheelDBEntity.dll
+E:\Important\Project\MItcheelClaimSystem\MitcheelDBEntity\obj\Debug\MitcheelDBEntity.pdb
+E:\Important\Project\MItcheelClaimSystem\Assembly\MitcheelDBEntity.dll.config
+E:\Important\Project\MItcheelClaimSystem\Assembly\MitcheelDBEntity.dll
+E:\Important\Project\MItcheelClaimSystem\Assembly\MitcheelDBEntity.pdb

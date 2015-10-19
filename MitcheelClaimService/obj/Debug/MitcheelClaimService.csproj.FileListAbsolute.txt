@@ -1,0 +1,14 @@
+E:\Important\Project\MItcheelClaimSystem\MitcheelClaimService\bin\MitcheelClaimService.dll.config
+E:\Important\Project\MItcheelClaimSystem\MitcheelClaimService\bin\MitcheelClaimService.dll
+E:\Important\Project\MItcheelClaimSystem\MitcheelClaimService\bin\MitcheelClaimService.pdb
+E:\Important\Project\MItcheelClaimSystem\MitcheelClaimService\obj\Debug\MitcheelClaimService.dll
+E:\Important\Project\MItcheelClaimSystem\MitcheelClaimService\obj\Debug\MitcheelClaimService.pdb
+E:\Important\Project\MItcheelClaimSystem\MitcheelClaimService\bin\MitcheelDBEntity.dll
+E:\Important\Project\MItcheelClaimSystem\MitcheelClaimService\bin\EntityFramework.dll
+E:\Important\Project\MItcheelClaimSystem\MitcheelClaimService\bin\MitcheelDBEntity.pdb
+E:\Important\Project\MItcheelClaimSystem\MitcheelClaimService\bin\EntityFramework.xml
+E:\Important\Project\MItcheelClaimSystem\MitcheelClaimService\obj\Debug\MitcheelClaimService.csprojResolveAssemblyReference.cache
+E:\Important\Project\MItcheelClaimSystem\MitcheelClaimService\bin\EntityFramework.SqlServer.dll
+E:\Important\Project\MItcheelClaimSystem\MitcheelClaimService\bin\EntityFramework.SqlServer.xml
+E:\Important\Project\MItcheelClaimSystem\MitcheelClaimService\bin\Newtonsoft.Json.dll
+E:\Important\Project\MItcheelClaimSystem\MitcheelClaimService\bin\Newtonsoft.Json.xml

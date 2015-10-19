@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MitcheelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CauseOfLossCode">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="tinyint" Nullable="false" />
+    <Property Name="cause" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Mitcheel.dbo.LossInfo' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="LossInfo">
+          <Property Name="mitcheelclaim_id" Type="bigint" />
+          <Property Name="iCauseOfLoss" Type="int" />
+          <Property Name="ReportedDate" Type="datetime" />
+          <Property Name="LossDescription" Type="nvarchar(max)" />
+        </EntityType>-->
+  <EntityType Name="MitchellClaim">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="claimNumber" Type="nvarchar(max)" />
+    <Property Name="claimantFirstName" Type="nvarchar" MaxLength="100" />
+    <Property Name="caimantLastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="status" Type="tinyint" />
+    <Property Name="lossdate" Type="datetime" />
+    <Property Name="AssignedAdjusterID" Type="int" />
+  </EntityType>
+  <EntityType Name="StatusCode">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="tinyint" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Mitcheel.dbo.Vehicles' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Vehicles">
+          <Property Name="mitcheelclaim_id" Type="bigint" />
+          <Property Name="ModelYear" Type="int" />
+          <Property Name="MakeDescription" Type="nvarchar(max)" />
+          <Property Name="ModelDescription" Type="nvarchar(max)" />
+          <Property Name="EngineDescription" Type="nvarchar(max)" />
+          <Property Name="ExteriorColor" Type="nvarchar(max)" />
+          <Property Name="Vin" Type="nvarchar" MaxLength="200" />
+          <Property Name="LicPlate" Type="nvarchar" MaxLength="200" />
+          <Property Name="LicPlateState" Type="nvarchar" MaxLength="200" />
+          <Property Name="LicPlateExpDate" Type="datetime" />
+          <Property Name="DamageDescription" Type="nvarchar" MaxLength="200" />
+          <Property Name="Mileage" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+error 6004: The table 'Mitcheel.dbo.LossInfo' is referenced by a relationship, but cannot be found.
+        <Association Name="FK__LossInfo__mitche__164452B1" />-->
+  <Association Name="FK__MitchellC__statu__145C0A3F">
+    <End Role="StatusCode" Type="Self.StatusCode" Multiplicity="0..1" />
+    <End Role="MitchellClaim" Type="Self.MitchellClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusCode">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MitchellClaim">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'Mitcheel.dbo.Vehicles' is referenced by a relationship, but cannot be found.
+        <Association Name="FK__Vehicles__mitche__182C9B23" />-->
+  <EntityContainer Name="MitcheelModelStoreContainer">
+    <EntitySet Name="CauseOfLossCode" EntityType="Self.CauseOfLossCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MitchellClaim" EntityType="Self.MitchellClaim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusCode" EntityType="Self.StatusCode" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__MitchellC__statu__145C0A3F" Association="Self.FK__MitchellC__statu__145C0A3F">
+      <End Role="StatusCode" EntitySet="StatusCode" />
+      <End Role="MitchellClaim" EntitySet="MitchellClaim" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

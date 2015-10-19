@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MitchellModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CauseOfLossCode">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="tinyint" Nullable="false" />
+    <Property Name="cause" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LossInfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mitcheelclaim_id" Type="bigint" />
+    <Property Name="iCauseOfLoss" Type="int" />
+    <Property Name="ReportedDate" Type="datetime" />
+    <Property Name="LossDescription" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="MitchellClaim">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="claimNumber" Type="nvarchar(max)" />
+    <Property Name="claimantFirstName" Type="nvarchar" MaxLength="100" />
+    <Property Name="caimantLastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="status" Type="tinyint" />
+    <Property Name="lossdate" Type="datetime" />
+    <Property Name="AssignedAdjusterID" Type="int" />
+  </EntityType>
+  <EntityType Name="StatusCode">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="tinyint" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Vehicles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mitcheelclaim_id" Type="bigint" />
+    <Property Name="ModelYear" Type="int" />
+    <Property Name="MakeDescription" Type="nvarchar(max)" />
+    <Property Name="ModelDescription" Type="nvarchar(max)" />
+    <Property Name="EngineDescription" Type="nvarchar(max)" />
+    <Property Name="ExteriorColor" Type="nvarchar(max)" />
+    <Property Name="Vin" Type="nvarchar" MaxLength="200" />
+    <Property Name="LicPlate" Type="nvarchar" MaxLength="200" />
+    <Property Name="LicPlateState" Type="nvarchar" MaxLength="200" />
+    <Property Name="LicPlateExpDate" Type="datetime" />
+    <Property Name="DamageDescription" Type="nvarchar" MaxLength="200" />
+    <Property Name="Mileage" Type="int" />
+  </EntityType>
+  <Association Name="FK__LossInfo__mitche__6754599E">
+    <End Role="MitchellClaim" Type="Self.MitchellClaim" Multiplicity="0..1" />
+    <End Role="LossInfo" Type="Self.LossInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MitchellClaim">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="LossInfo">
+        <PropertyRef Name="mitcheelclaim_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MitchellC__statu__6477ECF3">
+    <End Role="StatusCode" Type="Self.StatusCode" Multiplicity="0..1" />
+    <End Role="MitchellClaim" Type="Self.MitchellClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusCode">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MitchellClaim">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehicles__mitche__6A30C649">
+    <End Role="MitchellClaim" Type="Self.MitchellClaim" Multiplicity="0..1" />
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MitchellClaim">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="mitcheelclaim_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MitchellModelStoreContainer">
+    <EntitySet Name="CauseOfLossCode" EntityType="Self.CauseOfLossCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LossInfo" EntityType="Self.LossInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MitchellClaim" EntityType="Self.MitchellClaim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusCode" EntityType="Self.StatusCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehicles" EntityType="Self.Vehicles" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__LossInfo__mitche__6754599E" Association="Self.FK__LossInfo__mitche__6754599E">
+      <End Role="MitchellClaim" EntitySet="MitchellClaim" />
+      <End Role="LossInfo" EntitySet="LossInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MitchellC__statu__6477ECF3" Association="Self.FK__MitchellC__statu__6477ECF3">
+      <End Role="StatusCode" EntitySet="StatusCode" />
+      <End Role="MitchellClaim" EntitySet="MitchellClaim" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehicles__mitche__6A30C649" Association="Self.FK__Vehicles__mitche__6A30C649">
+      <End Role="MitchellClaim" EntitySet="MitchellClaim" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

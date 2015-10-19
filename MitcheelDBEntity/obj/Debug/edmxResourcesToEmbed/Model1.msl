@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MitcheelModelStoreContainer" CdmEntityContainer="MitcheelEntities">
+    <EntitySetMapping Name="CauseOfLossCodes">
+      <EntityTypeMapping TypeName="MitcheelModel.CauseOfLossCode">
+        <MappingFragment StoreEntitySet="CauseOfLossCode">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cause" ColumnName="cause" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MitchellClaims">
+      <EntityTypeMapping TypeName="MitcheelModel.MitchellClaim">
+        <MappingFragment StoreEntitySet="MitchellClaim">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="claimNumber" ColumnName="claimNumber" />
+          <ScalarProperty Name="claimantFirstName" ColumnName="claimantFirstName" />
+          <ScalarProperty Name="caimantLastName" ColumnName="caimantLastName" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="lossdate" ColumnName="lossdate" />
+          <ScalarProperty Name="AssignedAdjusterID" ColumnName="AssignedAdjusterID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusCodes">
+      <EntityTypeMapping TypeName="MitcheelModel.StatusCode">
+        <MappingFragment StoreEntitySet="StatusCode">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

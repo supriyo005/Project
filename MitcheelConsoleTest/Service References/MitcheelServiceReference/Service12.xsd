@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MitcheelClaimService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MitcheelClaimService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfModelMitchellCliams">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelMitchellCliams" nillable="true" type="tns:ModelMitchellCliams" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModelMitchellCliams" nillable="true" type="tns:ArrayOfModelMitchellCliams" />
+  <xs:complexType name="ModelMitchellCliams">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssignedAdjusterID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LossInfoes" nillable="true" type="tns:ArrayOfModelLossInfo" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vehicles" nillable="true" type="tns:ArrayOfModelVehicle" />
+      <xs:element minOccurs="0" name="caimantLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="claimNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="claimantFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:long" />
+      <xs:element minOccurs="0" name="lossdate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModelMitchellCliams" nillable="true" type="tns:ModelMitchellCliams" />
+  <xs:complexType name="ArrayOfModelLossInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelLossInfo" nillable="true" type="tns:ModelLossInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModelLossInfo" nillable="true" type="tns:ArrayOfModelLossInfo" />
+  <xs:complexType name="ModelLossInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LossDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReportedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="iCauseOfLoss" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="id" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModelLossInfo" nillable="true" type="tns:ModelLossInfo" />
+  <xs:complexType name="ArrayOfModelVehicle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelVehicle" nillable="true" type="tns:ModelVehicle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModelVehicle" nillable="true" type="tns:ArrayOfModelVehicle" />
+  <xs:complexType name="ModelVehicle">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DamageDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EngineDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExteriorColor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LicPlate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LicPlateExpDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LicPlateState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MakeDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mileage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ModelDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelYear" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Vin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModelVehicle" nillable="true" type="tns:ModelVehicle" />
+</xs:schema>
